@@ -9,13 +9,11 @@ export function HeroSection() {
       className="bg-graphite-deep texture-glow-primary relative flex min-h-screen items-center justify-center overflow-hidden"
       aria-label="Hero"
     >
-      {/* Engineering blueprint texture — extremely subtle */}
       <div
         className="texture-blueprint pointer-events-none absolute inset-0"
         aria-hidden="true"
       />
 
-      {/* Ambient warm accent — barely visible gold glow bottom-right */}
       <div
         className="pointer-events-none absolute inset-0"
         aria-hidden="true"
@@ -27,7 +25,6 @@ export function HeroSection() {
 
       <Container>
         <div className="relative flex flex-col items-center gap-10 py-32 text-center">
-          {/* Overline tag with gold hint */}
           <div className="animate-fade-in inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.03] px-4 py-1.5 backdrop-blur-sm">
             <span className="bg-gold-500 h-1.5 w-1.5 rounded-full" />
             <span className="text-xs font-semibold tracking-widest text-white/70 uppercase">
@@ -35,14 +32,12 @@ export function HeroSection() {
             </span>
           </div>
 
-          {/* Headline — LCP element, no animation delay */}
-          <h1 className="max-w-[880px] text-5xl leading-[1.02] font-bold tracking-tight text-balance text-white md:text-6xl lg:text-7xl xl:text-[5.5rem]">
+          <h1 className="max-w-[880px] text-4xl leading-[1.05] font-bold tracking-tight text-balance text-white sm:text-5xl md:text-6xl lg:text-7xl">
             Built for engineers who{' '}
             <span className="relative inline-block">
               <span className="text-primary-400 relative z-10">
                 build the future
               </span>
-              {/* Subtle underline glow */}
               <span
                 aria-hidden="true"
                 className="bg-primary-500/20 absolute inset-x-0 bottom-1 -z-0 h-3 blur-md"
@@ -50,7 +45,6 @@ export function HeroSection() {
             </span>
           </h1>
 
-          {/* Subheading */}
           <p
             className="max-w-reading animate-fade-up text-lg leading-[1.6] text-balance text-white/60 md:text-xl"
             style={{ animationDelay: '120ms', animationFillMode: 'both' }}
@@ -60,20 +54,21 @@ export function HeroSection() {
             one place.
           </p>
 
-          {/* CTA row */}
           <div
             className="animate-fade-up flex flex-col items-center gap-3 sm:flex-row sm:gap-4"
             style={{ animationDelay: '220ms', animationFillMode: 'both' }}
           >
-            <Button
-              variant="primary"
-              size="lg"
-              rightIcon={<ArrowRight className="h-4 w-4" />}
-            >
-              Explore ToolVault
-            </Button>
+            <a href="#about" aria-label="Explore ToolVault sections below">
+              <Button
+                variant="primary"
+                size="lg"
+                rightIcon={<ArrowRight className="h-4 w-4" />}
+              >
+                Explore ToolVault
+              </Button>
+            </a>
             <a
-              href="#about"
+              href="#cta"
               className="group inline-flex items-center gap-2 rounded-lg px-4 py-2 text-sm font-medium text-white/70 transition-colors duration-200 hover:text-white"
             >
               Learn more
@@ -86,7 +81,6 @@ export function HeroSection() {
             </a>
           </div>
 
-          {/* Trust row — refined typography */}
           <div
             className="animate-fade-up mt-4 flex flex-wrap items-center justify-center gap-x-8 gap-y-3"
             style={{ animationDelay: '320ms', animationFillMode: 'both' }}
@@ -109,7 +103,6 @@ export function HeroSection() {
         </div>
       </Container>
 
-      {/* Scroll indicator — refined */}
       <a
         href="#about"
         aria-label="Scroll to content"

@@ -19,10 +19,10 @@ export function Navbar() {
     <header
       className={cn(
         'fixed top-0 right-0 left-0 z-50',
-        'transition-all duration-300',
+        'transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]',
         isScrolled
-          ? 'border-border-light border-b bg-white/95 shadow-sm backdrop-blur-md'
-          : 'bg-transparent'
+          ? 'bg-surface-warm/80 border-b border-black/[0.06] shadow-[0_1px_3px_rgba(0,0,0,0.04)] backdrop-blur-xl'
+          : 'border-b border-transparent bg-transparent'
       )}
     >
       <nav
@@ -30,9 +30,12 @@ export function Navbar() {
         aria-label="Main navigation"
       >
         <a
-          href="#"
-          className="text-secondary-900 text-lg font-bold tracking-tight"
-          aria-label={SITE.name}
+          href="#hero"
+          className={cn(
+            'text-base font-bold tracking-tight transition-colors duration-300',
+            isScrolled ? 'text-secondary-900' : 'text-white'
+          )}
+          aria-label={`${SITE.name} — back to top`}
         >
           {SITE.name}
         </a>
@@ -43,9 +46,11 @@ export function Navbar() {
               key={link.href}
               href={link.href}
               className={cn(
-                'rounded-lg px-3 py-2 text-sm font-medium transition-colors duration-150',
-                'text-secondary-600 hover:bg-secondary-50 hover:text-secondary-900',
-                'focus-visible:ring-primary-500 focus-visible:ring-2 focus-visible:ring-offset-2'
+                'rounded-lg px-3 py-2 text-sm font-medium transition-colors duration-200',
+                'focus-visible:outline-2 focus-visible:outline-offset-2',
+                isScrolled
+                  ? 'text-secondary-600 hover:text-secondary-900 focus-visible:outline-primary-500 hover:bg-black/[0.04]'
+                  : 'text-white/70 hover:bg-white/[0.06] hover:text-white focus-visible:outline-white'
               )}
             >
               {link.label}
@@ -54,16 +59,27 @@ export function Navbar() {
         </div>
 
         <div className="hidden md:flex">
-          <Button variant="primary" size="sm">
+          <a
+            href={CTA_LINK.href}
+            className={cn(
+              'inline-flex h-9 items-center gap-2 rounded-lg px-4 text-sm font-medium transition-all duration-200',
+              'focus-visible:outline-2 focus-visible:outline-offset-2',
+              isScrolled
+                ? 'bg-secondary-900 hover:bg-secondary-800 focus-visible:outline-primary-500 text-white'
+                : 'bg-white/10 text-white ring-1 ring-white/20 hover:bg-white/[0.15] hover:ring-white/30 focus-visible:outline-white'
+            )}
+          >
             {CTA_LINK.label}
-          </Button>
+          </a>
         </div>
 
         <button
           className={cn(
-            'flex h-10 w-10 items-center justify-center rounded-lg md:hidden',
-            'text-secondary-600 hover:bg-secondary-50 transition-colors',
-            'focus-visible:ring-primary-500 focus-visible:ring-2 focus-visible:ring-offset-2'
+            'flex h-10 w-10 items-center justify-center rounded-lg transition-colors md:hidden',
+            'focus-visible:outline-2 focus-visible:outline-offset-2',
+            isScrolled
+              ? 'text-secondary-600 focus-visible:outline-primary-500 hover:bg-black/[0.04]'
+              : 'text-white/80 hover:bg-white/[0.06] focus-visible:outline-white'
           )}
           onClick={toggleMobileMenu}
           aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
@@ -83,8 +99,13 @@ export function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.2, ease: [0, 0, 0.2, 1] }}
-            className="border-border-light overflow-hidden border-b bg-white md:hidden"
+            transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
+            className={cn(
+              'overflow-hidden border-b md:hidden',
+              isScrolled
+                ? 'bg-surface-warm/95 border-black/[0.06] backdrop-blur-xl'
+                : 'bg-graphite-deep/95 border-white/10 backdrop-blur-xl'
+            )}
           >
             <div className="flex flex-col gap-1 px-4 py-4">
               {NAV_LINKS.map(link => (
@@ -93,22 +114,26 @@ export function Navbar() {
                   href={link.href}
                   onClick={closeMobileMenu}
                   className={cn(
-                    'rounded-lg px-3 py-2.5 text-sm font-medium',
-                    'text-secondary-600 hover:bg-secondary-50 hover:text-secondary-900 transition-colors'
+                    'rounded-lg px-3 py-2.5 text-sm font-medium transition-colors',
+                    isScrolled
+                      ? 'text-secondary-600 hover:text-secondary-900 hover:bg-black/[0.04]'
+                      : 'text-white/70 hover:bg-white/[0.06] hover:text-white'
                   )}
                 >
                   {link.label}
                 </a>
               ))}
-              <div className="border-border-light mt-2 border-t pt-3">
-                <Button
-                  variant="primary"
-                  size="md"
-                  fullWidth
-                  onClick={closeMobileMenu}
-                >
-                  {CTA_LINK.label}
-                </Button>
+              <div
+                className={cn(
+                  'mt-2 border-t pt-3',
+                  isScrolled ? 'border-black/[0.06]' : 'border-white/10'
+                )}
+              >
+                <a href={CTA_LINK.href} onClick={closeMobileMenu}>
+                  <Button variant="primary" size="md" fullWidth>
+                    {CTA_LINK.label}
+                  </Button>
+                </a>
               </div>
             </div>
           </motion.div>

@@ -1,9 +1,9 @@
-﻿export const SITE = {
+export const SITE = {
   name: 'ToolVault',
   description:
     'Engineering infrastructure for innovators. Access professional tools, collaborative workspaces, and expert guidance.',
-  url: 'https://toolvault.io',
-  email: 'hello@toolvault.io',
+  url: 'https://toolvault-web.vercel.app',
+  email: 'raghavendrashivam474@gmail.com',
 } as const
 
 export const BREAKPOINTS = {

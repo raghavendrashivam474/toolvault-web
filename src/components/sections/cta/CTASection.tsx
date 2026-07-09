@@ -3,8 +3,12 @@ import { Container, Stack } from '@/components/layout'
 import { Section } from '@/components/sections'
 import { Button } from '@/components/buttons'
 import { FadeUp } from '@/animations'
+import { SITE } from '@/constants'
 
 export function CTASection() {
+  const communityMailto = `mailto:${SITE.email}?subject=Join%20the%20ToolVault%20Community`
+  const contactMailto = `mailto:${SITE.email}?subject=ToolVault%20Enquiry`
+
   return (
     <Section
       id="cta"
@@ -12,13 +16,11 @@ export function CTASection() {
       className="bg-graphite relative overflow-hidden"
       aria-label="Get involved"
     >
-      {/* Blueprint texture */}
       <div
         className="texture-blueprint pointer-events-none absolute inset-0"
         aria-hidden="true"
       />
 
-      {/* Indigo spotlight glow */}
       <div
         className="pointer-events-none absolute inset-0"
         aria-hidden="true"
@@ -48,15 +50,21 @@ export function CTASection() {
             </p>
 
             <Stack direction="row" gap="sm" wrap className="justify-center">
-              <Button
-                variant="primary"
-                size="lg"
-                rightIcon={<ArrowRight className="h-4 w-4" />}
-              >
-                Join the Community
-              </Button>
               <a
-                href={'mailto:hello@toolvault.io'}
+                href={communityMailto}
+                aria-label="Join the ToolVault community by email"
+              >
+                <Button
+                  variant="primary"
+                  size="lg"
+                  rightIcon={<ArrowRight className="h-4 w-4" />}
+                >
+                  Join the Community
+                </Button>
+              </a>
+              <a
+                href={contactMailto}
+                aria-label="Contact ToolVault by email"
                 className="inline-flex h-12 items-center gap-2 rounded-lg border border-white/15 bg-white/[0.03] px-6 text-base font-medium text-white transition-all duration-200 hover:border-white/25 hover:bg-white/[0.06]"
               >
                 <Mail className="h-4 w-4" />
