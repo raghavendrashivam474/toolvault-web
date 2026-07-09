@@ -11,8 +11,6 @@ const nextConfig: NextConfig = {
     minimumCacheTTL: 60,
   },
 
-  // Security headers applied to all responses.
-  // Static asset caching is handled automatically by Next.js.
   async headers() {
     return [
       {

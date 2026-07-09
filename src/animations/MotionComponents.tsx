@@ -13,18 +13,6 @@ import {
   staggerItem,
 } from './variants'
 
-/**
- * Motion Components
- *
- * All viewport-triggered components:
- * - Trigger once (no re-animation on scroll up)
- * - Use a smaller margin (-80px) so reveals feel timely
- * - Respect prefers-reduced-motion automatically
- *
- * When reduced motion is preferred, elements render at their final state
- * with no transition, preserving layout and content.
- */
-
 const viewportConfig = { once: true, margin: '-80px' }
 
 function useMotionOrStatic(variant: typeof fadeUp) {
@@ -37,8 +25,6 @@ function useMotionOrStatic(variant: typeof fadeUp) {
   }
   return variant
 }
-
-// ── Individual Motion Components ─────────────────────────────────
 
 export function FadeIn({
   className,

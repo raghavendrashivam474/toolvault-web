@@ -13,7 +13,6 @@ export function HeroSection() {
       className="bg-secondary-950 relative flex min-h-screen items-center justify-center overflow-hidden"
       aria-label="Hero"
     >
-      {/* Background grid pattern */}
       <div
         className="pointer-events-none absolute inset-0 opacity-[0.03]"
         aria-hidden="true"
@@ -24,7 +23,6 @@ export function HeroSection() {
         }}
       />
 
-      {/* Subtle radial glow */}
       <div
         className="pointer-events-none absolute inset-0"
         aria-hidden="true"
@@ -46,7 +44,6 @@ export function HeroSection() {
             <span className="text-primary-400">build the future</span>
           </h1>
 
-          {/* Animated content below the fold priority */}
           <motion.div
             variants={staggerContainer}
             initial="hidden"
@@ -100,7 +97,6 @@ export function HeroSection() {
         </div>
       </Container>
 
-      {/* Scroll indicator */}
       <motion.div
         variants={fadeUp}
         initial="hidden"

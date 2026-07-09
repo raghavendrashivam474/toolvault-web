@@ -1,20 +1,9 @@
 import type { Variants } from 'framer-motion'
 
-/**
- * ToolVault Motion Variants
- *
- * All variants use a single canonical easing curve to feel cohesive.
- * Durations are intentionally short (250-400ms) for a snappy, premium feel.
- * Y-offsets are subtle (16px) to avoid overly dramatic scroll reveals.
- */
-
-// Canonical easing — used across every animation for consistency.
 const easeOut = [0, 0, 0.2, 1] as const
 const durationFast = 0.25
 const durationNormal = 0.35
 const offset = 16
-
-// ── Fade Variants ────────────────────────────────────────────────
 
 export const fadeIn: Variants = {
   hidden: { opacity: 0 },
@@ -69,8 +58,6 @@ export const scaleIn: Variants = {
   },
 }
 
-// ── Stagger Variants ─────────────────────────────────────────────
-
 export const staggerContainer: Variants = {
   hidden: { opacity: 0 },
   visible: {
@@ -90,8 +77,6 @@ export const staggerItem: Variants = {
     transition: { duration: durationFast, ease: easeOut },
   },
 }
-
-// ── Hover Variants ───────────────────────────────────────────────
 
 export const hoverLift = {
   rest: { y: 0, transition: { duration: 0.2, ease: easeOut } },

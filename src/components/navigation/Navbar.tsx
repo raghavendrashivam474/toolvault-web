@@ -1,4 +1,4 @@
-﻿'use client'
+'use client'
 
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
@@ -29,7 +29,6 @@ export function Navbar() {
         className="max-w-container mx-auto flex h-16 items-center justify-between px-4 sm:px-6 lg:px-8"
         aria-label="Main navigation"
       >
-        {/* Logo */}
         <a
           href="#"
           className="text-secondary-900 text-lg font-bold tracking-tight"
@@ -38,7 +37,6 @@ export function Navbar() {
           {SITE.name}
         </a>
 
-        {/* Desktop Links */}
         <div className="hidden items-center gap-1 md:flex">
           {NAV_LINKS.map(link => (
             <a
@@ -55,14 +53,12 @@ export function Navbar() {
           ))}
         </div>
 
-        {/* Desktop CTA */}
         <div className="hidden md:flex">
           <Button variant="primary" size="sm">
             {CTA_LINK.label}
           </Button>
         </div>
 
-        {/* Mobile Toggle */}
         <button
           className={cn(
             'flex h-10 w-10 items-center justify-center rounded-lg md:hidden',
@@ -81,7 +77,6 @@ export function Navbar() {
         </button>
       </nav>
 
-      {/* Mobile Menu */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
