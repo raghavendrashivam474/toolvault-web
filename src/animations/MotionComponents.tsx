@@ -1,6 +1,6 @@
-﻿'use client'
+'use client'
 
-import { motion, type HTMLMotionProps } from 'framer-motion'
+import { motion, useReducedMotion, type HTMLMotionProps } from 'framer-motion'
 import { cn } from '@/utils/cn'
 import {
   fadeIn,
@@ -13,16 +13,42 @@ import {
   staggerItem,
 } from './variants'
 
-const viewportConfig = { once: true, margin: '-50px' }
+/**
+ * Motion Components
+ *
+ * All viewport-triggered components:
+ * - Trigger once (no re-animation on scroll up)
+ * - Use a smaller margin (-80px) so reveals feel timely
+ * - Respect prefers-reduced-motion automatically
+ *
+ * When reduced motion is preferred, elements render at their final state
+ * with no transition, preserving layout and content.
+ */
+
+const viewportConfig = { once: true, margin: '-80px' }
+
+function useMotionOrStatic(variant: typeof fadeUp) {
+  const prefersReducedMotion = useReducedMotion()
+  if (prefersReducedMotion) {
+    return {
+      hidden: { opacity: 1 },
+      visible: { opacity: 1, transition: { duration: 0 } },
+    }
+  }
+  return variant
+}
+
+// ── Individual Motion Components ─────────────────────────────────
 
 export function FadeIn({
   className,
   children,
   ...props
 }: HTMLMotionProps<'div'>) {
+  const variants = useMotionOrStatic(fadeIn)
   return (
     <motion.div
-      variants={fadeIn}
+      variants={variants}
       initial="hidden"
       whileInView="visible"
       viewport={viewportConfig}
@@ -39,9 +65,10 @@ export function FadeUp({
   children,
   ...props
 }: HTMLMotionProps<'div'>) {
+  const variants = useMotionOrStatic(fadeUp)
   return (
     <motion.div
-      variants={fadeUp}
+      variants={variants}
       initial="hidden"
       whileInView="visible"
       viewport={viewportConfig}
@@ -58,9 +85,10 @@ export function FadeDown({
   children,
   ...props
 }: HTMLMotionProps<'div'>) {
+  const variants = useMotionOrStatic(fadeDown)
   return (
     <motion.div
-      variants={fadeDown}
+      variants={variants}
       initial="hidden"
       whileInView="visible"
       viewport={viewportConfig}
@@ -77,9 +105,10 @@ export function SlideLeft({
   children,
   ...props
 }: HTMLMotionProps<'div'>) {
+  const variants = useMotionOrStatic(slideLeft)
   return (
     <motion.div
-      variants={slideLeft}
+      variants={variants}
       initial="hidden"
       whileInView="visible"
       viewport={viewportConfig}
@@ -96,9 +125,10 @@ export function SlideRight({
   children,
   ...props
 }: HTMLMotionProps<'div'>) {
+  const variants = useMotionOrStatic(slideRight)
   return (
     <motion.div
-      variants={slideRight}
+      variants={variants}
       initial="hidden"
       whileInView="visible"
       viewport={viewportConfig}
@@ -115,9 +145,10 @@ export function ScaleIn({
   children,
   ...props
 }: HTMLMotionProps<'div'>) {
+  const variants = useMotionOrStatic(scaleIn)
   return (
     <motion.div
-      variants={scaleIn}
+      variants={variants}
       initial="hidden"
       whileInView="visible"
       viewport={viewportConfig}
@@ -134,9 +165,10 @@ export function StaggerContainer({
   children,
   ...props
 }: HTMLMotionProps<'div'>) {
+  const variants = useMotionOrStatic(staggerContainer)
   return (
     <motion.div
-      variants={staggerContainer}
+      variants={variants}
       initial="hidden"
       whileInView="visible"
       viewport={viewportConfig}
@@ -153,8 +185,9 @@ export function StaggerItem({
   children,
   ...props
 }: HTMLMotionProps<'div'>) {
+  const variants = useMotionOrStatic(staggerItem)
   return (
-    <motion.div variants={staggerItem} className={cn(className)} {...props}>
+    <motion.div variants={variants} className={cn(className)} {...props}>
       {children}
     </motion.div>
   )
