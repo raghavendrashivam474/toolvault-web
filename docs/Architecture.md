@@ -1,6 +1,6 @@
 ﻿# Technical Architecture — ToolVault
 
-**Version:** v0.2.0
+**Version:** v0.3.0
 **Status:** Active
 **Last Updated:** 2026-07-09
 
@@ -9,8 +9,8 @@
 ## 1. Overview
 
 ToolVault is built on Next.js 16 with the App Router, TypeScript strict mode,
-Tailwind CSS v4, and Framer Motion. The architecture prioritizes scalability,
-maintainability, and performance from the foundation.
+Tailwind CSS v4, and Framer Motion. Sprint 3 delivered the complete homepage
+assembled from Sprint 2 reusable primitives.
 
 ---
 
@@ -31,120 +31,147 @@ maintainability, and performance from the foundation.
 ## 3. Folder Structure
 
 src/
-app/ Next.js App Router — pages and layouts
-animations/ Framer Motion variants and motion components
-assets/ Static assets referenced in code
+app/
+page.tsx Homepage — composes all sections
+layout.tsx Root layout with metadata and providers
+globals.css Global styles and CSS custom properties
+animations/
+variants.ts Framer Motion animation presets
+MotionComponents.tsx FadeIn, FadeUp, StaggerContainer etc.
+index.ts
 components/
-buttons/ Button component library
-cards/ Card component library
-layout/ Layout primitives (Container, Stack, Grid)
-navigation/ Navigation components (Sprint 3)
-sections/ Section structure components
-typography/ Text component with variant system
-constants/ Application-wide constants
-hooks/ Custom React hooks
-lib/ Third-party library configurations
-providers/ React context providers
-styles/ Additional global styles
-tokens/ Design token definitions
-types/ Global TypeScript type definitions
-utils/ Pure utility functions
-
-public/
-images/ Optimised images
-icons/ SVG icons
-videos/ Video assets
-documents/ Downloadable documents
-
-docs/ Project documentation
-
----
-
-## 4. Design Token Architecture
-
-Tokens are defined in src/tokens/ and consumed via:
-
-1. Tailwind CSS config (tailwind.config.ts) — utility classes
-2. CSS custom properties (globals.css) — runtime values
-3. TypeScript imports — type-safe references in logic
-
-Token categories:
-colors.ts — full color palette
-typography.ts — font families, sizes, weights
-spacing.ts — spacing scale, border radius, shadows
-animation.ts — durations and easing values
-index.ts — single export entry point
-
----
-
-## 5. Component Architecture
-
-### Naming
-
-- PascalCase for component files and exports
-- kebab-case for folders
-- One component per file
-- Named exports throughout (no default exports from UI components)
-
-### File Structure Per Component
-
-ComponentName/
-index.ts — re-exports
-ComponentName.tsx — implementation
-ComponentName.types.ts — prop interfaces
-
-### Import Pattern
-
-import { Button } from '@/components/buttons'
-import { Container, Stack } from '@/components/layout'
-import { FadeUp } from '@/animations'
-import { cn } from '@/utils/cn'
+buttons/ Button — 5 variants, 4 sizes
+cards/ Card, FeatureCard, StatCard
+layout/ Container, Stack, Grid, Spacer, Divider
+navigation/ Navbar — sticky, responsive, mobile menu
+sections/
+capabilities/ CapabilitiesSection
+cta/ CTASection
+footer/ Footer
+hero/ HeroSection
+labs/ LabsSection
+problem/ ProblemSection
+roadmap/ RoadmapSection
+solution/ SolutionSection, WhySection
+vision/ VisionSection
+Section.tsx Section, SectionHeader, SectionTag etc.
+typography/ Text component — 11 variants
+constants/
+site.ts SITE, BREAKPOINTS, TRANSITION, Z_INDEX
+navigation.ts NAV_LINKS, CTA_LINK
+index.ts
+hooks/
+useReducedMotion.ts
+useMediaQuery.ts
+useScrolled.ts
+index.ts
+providers/
+MotionProvider.tsx LazyMotion wrapper
+AppProviders.tsx Root provider composition
+index.ts
+tokens/
+colors.ts Full color palette
+typography.ts Font definitions
+spacing.ts 8pt grid, radius, shadows
+animation.ts Duration and easing tokens
+index.ts
+types/
+index.ts Global TypeScript definitions
+utils/
+cn.ts clsx + tailwind-merge utility
+helpers.ts formatNumber, sleep, clamp, isClient
 
 ---
 
-## 6. Routing Strategy
+## 4. Homepage Component Tree
 
-Next.js App Router. File-based routing under src/app/.
-Current routes:
-/ — placeholder (Sprint 3 will implement landing page)
-
----
-
-## 7. Provider Architecture
-
-AppProviders wraps the root layout and composes all providers.
-Current providers:
-MotionProvider — Framer Motion LazyMotion with domAnimation features
-
-Add new providers inside AppProviders as the application grows.
-
----
-
-## 8. Performance Strategy
-
-- LazyMotion used for Framer Motion (reduces bundle size)
-- next/font for zero-layout-shift font loading
-- Tree-shakable named exports on all components
-- No inline styles
-- No arbitrary Tailwind values
-- Static generation for all marketing pages
+HomePage (page.tsx)
+Navbar
+main#main-content
+HeroSection
+ProblemSection
+SolutionSection
+LabsSection
+CapabilitiesSection
+WhySection
+VisionSection
+RoadmapSection
+CTASection
+Footer
 
 ---
 
-## 9. Accessibility Strategy
+## 5. Animation Architecture
 
-- Semantic HTML enforced in all components
-- :focus-visible ring on all interactive elements
-- aria-hidden on decorative elements
-- aria-disabled and aria-busy on Button states
-- prefers-reduced-motion respected globally via CSS
-- WCAG 2.1 AA target for all color combinations
+All animations use Framer Motion via approved Sprint 2 presets.
+
+Scroll-triggered: whileInView with once:true viewport detection
+Entrance: FadeUp, FadeIn, SlideLeft, SlideRight, ScaleIn
+Stagger: StaggerContainer wraps grids, StaggerItem wraps cards
+Hover: CSS transitions (duration-200) on card elements
+Navigation: AnimatePresence for mobile menu open/close
+Hero: staggerContainer with animate (not whileInView)
+
+Reduced motion: Respected via CSS @media prefers-reduced-motion
 
 ---
 
-## 10. Deployment Pipeline
+## 6. Responsive Strategy
+
+All sections mobile-first. Breakpoints used:
+
+sm 640px — 2-column grids begin
+md 768px — typography scales up, nav links appear
+lg 1024px — 3-4 column grids, timeline alternates sides
+xl 1280px — max container width reached
+
+Navigation: Desktop links hidden below md, mobile menu below md.
+Hero: Typography scales from text-5xl to text-7xl across breakpoints.
+Grids: All use responsive col classes (sm:grid-cols-2, lg:grid-cols-3).
+
+---
+
+## 7. Performance Strategy
+
+- Static generation for homepage (no server components needed)
+- LazyMotion reduces Framer Motion bundle size
+- next/font for zero-layout-shift font loading (Inter)
+- Named exports enable tree shaking
+- No inline styles (except computed backgrounds in Hero)
+- Images are placeholders — next/image optimization in Sprint 4
+
+---
+
+## 8. SEO Implementation
+
+Metadata defined in layout.tsx:
+
+- title template: page | ToolVault
+- description
+- openGraph with title, description, type, locale
+- twitter card summary_large_image
+- robots index and follow
+- metadataBase for absolute URL resolution
+
+---
+
+## 9. Accessibility Implementation
+
+- Semantic HTML throughout (header, main, section, footer, nav)
+- All sections have aria-label attributes
+- Navbar has aria-label, aria-expanded on mobile toggle
+- Focus-visible ring on all interactive elements
+- Decorative elements aria-hidden
+- Button loading states aria-busy and aria-disabled
+- Blockquote semantic markup in CTA
+- Skip to main content via id="main-content"
+- Reduced motion via CSS and useReducedMotion hook
+
+---
+
+## 10. Deployment
 
 Target: Vercel
 Branch: main -> production
-Preview: every pull request gets a preview URL
-Environment variables: managed in Vercel dashboard
+Build: next build — static output
+Route: / — statically prerendered
