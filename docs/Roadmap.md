@@ -1,71 +1,79 @@
 # Development Roadmap — ToolVault
 
-**Version:** v0.4.0
-**Status:** Sprint 4 Complete
-**Last Updated:** $(Get-Date -Format "yyyy-MM-dd")
+**Version:** v0.5.0
+**Status:** Sprint 5 Complete
 **Live:** https://toolvault-web.vercel.app
 
 ---
 
 ## Sprint 1 — Foundation (Complete)
 
-- [x] Repository setup
-- [x] Next.js 16 with App Router
-- [x] TypeScript strict mode
-- [x] Tailwind CSS v4
-- [x] ESLint and Prettier
-- [x] Folder structure and documentation
+Repository, Next.js 16, TypeScript, Tailwind, ESLint, Prettier, folder structure.
 
 ## Sprint 2 — UI Foundation (Complete)
 
-- [x] Design token system
-- [x] Typography, Layout, Button, Card, Section components
-- [x] Framer Motion animation library
-- [x] Custom hooks and utilities
+Design tokens, Typography, Layout, Button, Card, Section components, Framer Motion, hooks, providers.
 
 ## Sprint 3 — Homepage (Complete)
 
-- [x] Responsive navigation with mobile menu
-- [x] Hero, Problem, Solution, Labs, Capabilities sections
-- [x] Why ToolVault pillars, Vision with timeline
-- [x] Roadmap with phase status
-- [x] CTA and Footer
-- [x] Full accessibility implementation
+All 10 sections built and assembled. Full accessibility. Zero errors.
 
 ## Sprint 4 — Production Polish (Complete)
 
-- [x] Character encoding fix
-- [x] Loading, error, not-found, and global-error pages
-- [x] SEO — robots, sitemap, manifest, JSON-LD schema
-- [x] Dynamic OG image, Twitter image, favicon, apple icon
-- [x] Motion refinement and reduced-motion support
-- [x] Accessibility improvements (skip link, focus refinement)
-- [x] Security headers and font optimization
-- [x] Content audit and copy refinement
-- [x] Responsive audit passed
-- [x] Lighthouse — 100/100/100/100 desktop, 96/100/100/100 mobile
-- [x] Vercel deployment live
+Loading pages, SEO, favicons, security headers, accessibility.
+Lighthouse: 100/100/100/100 desktop, 96/100/100/100 mobile.
+Deployed to Vercel.
 
-## Sprint 5 — Content and Assets (Planned)
+## Sprint 5 — Visual Identity (Complete)
+
+- [x] Tailwind v4 @theme migration
+- [x] Refined color language (warm neutrals, graphite hierarchy, gold accent)
+- [x] Engineering texture system (blueprint grid, dot matrix, CAD lines)
+- [x] Scroll progress bar (CSS scroll-timeline)
+- [x] Hero redesign with ambient glows and glass tag
+- [x] Adaptive navigation (transparent over dark, glass on scroll)
+- [x] Alternating background rhythm across all 10 sections
+- [x] Ambient lighting per dark section (indigo, cyan, gold, indigo)
+- [x] Glass card system for dark sections
+- [x] Gold accent language (tags, timeline dots, "Soon" badges)
+- [x] Premium micro-interactions (softer focus, warm selection, refined scrollbar)
+- [x] SSR hydration fix in useScrolled hook
+
+### Sprint 5 Design Language
+
+| Section       | Background    | Ambient Glow       |
+| ------------- | ------------- | ------------------ |
+| Hero          | Deep Graphite | Indigo + Gold hint |
+| Problem       | Warm White    | —                  |
+| Solution      | Light Surface | —                  |
+| Labs          | Graphite      | Cyan               |
+| Capabilities  | Warm White    | —                  |
+| Why ToolVault | Light Surface | —                  |
+| Vision        | Deep Graphite | Gold               |
+| Roadmap       | Warm White    | —                  |
+| CTA           | Graphite      | Indigo spotlight   |
+| Footer        | Near Black    | —                  |
+
+## Sprint 5.1 — Deferred Polish (Planned)
+
+- [ ] Card system further refinement
+- [ ] Typography micro-adjustments
+- [ ] Spacing audit
+- [ ] Iconography consistency pass
+- [ ] Motion polish
+
+## Sprint 6 — Content and Assets (Planned)
 
 - [ ] Real photography replacing placeholders
 - [ ] Video content integration
 - [ ] Custom domain (toolvault.io)
 - [ ] Contact form with backend
 - [ ] Email waitlist capture
-- [ ] Analytics integration (Vercel Analytics)
+- [ ] Analytics integration
 
-## Sprint 6 — Feature Expansion (Planned)
+## Sprint 7 — Feature Expansion (Planned)
 
+- [ ] Theme toggle (dark/light mode)
 - [ ] Member portal
 - [ ] Equipment booking system
 - [ ] Workshop registration
-- [ ] Community platform
-- [ ] Blog and content system
-
-## Future Considerations
-
-- Dark mode
-- Multi-language support
-- Partner portal
-- Payment integration

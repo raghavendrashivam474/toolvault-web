@@ -12,7 +12,7 @@ end-to-end prototyping infrastructure.
 
 - **Framework:** Next.js 16 (App Router)
 - **Language:** TypeScript (strict mode)
-- **Styling:** Tailwind CSS v4
+- **Styling:** Tailwind CSS v4 (via `@theme` block)
 - **Animation:** Framer Motion
 - **Icons:** Lucide React
 - **Deployment:** Vercel
@@ -25,6 +25,16 @@ end-to-end prototyping infrastructure.
 | Accessibility  | 100     | 100    |
 | Best Practices | 100     | 100    |
 | SEO            | 100     | 100    |
+
+## Visual Design (Sprint 5)
+
+Alternating background rhythm across 10 sections:
+
+- **Dark moments**: Hero (intro), Labs (workspace), Vision (contemplative), CTA (commitment), Footer (grounded)
+- **Light sections**: Warm White for breathing, Light Surface for subtle contrast
+
+Each dark section has a distinct ambient glow signature (indigo, cyan, gold).
+Gold accent used sparingly for warmth (tags, timeline dots, badges).
 
 ## Getting Started
 
@@ -42,11 +52,6 @@ Open http://localhost:3000 in your browser.
 | npm run start | Run production build locally |
 | npm run lint  | Run ESLint                   |
 
-## Project Structure
-
-See docs/Architecture.md for the complete folder structure and architectural
-decisions.
-
 ## Documentation
 
 - docs/PRD.md — Product Requirements Document
@@ -55,10 +60,6 @@ decisions.
 - docs/Roadmap.md — Development roadmap
 - docs/Coding-Standards.md — Engineering standards
 
-## Deployment
-
-Deployed to Vercel. Live at https://toolvault-web.vercel.app.
-
 ## License
 
-MIT — see LICENSE
+MIT
