@@ -1,4 +1,4 @@
-﻿import { Flame, Cpu, Bot, Monitor, Users, Building2 } from 'lucide-react'
+import { Flame, Cpu, Bot, Monitor, Users, Building2 } from 'lucide-react'
 import { Container } from '@/components/layout'
 import {
   Section,
@@ -61,26 +61,39 @@ const labs = [
   },
 ]
 
-const statusStyles = {
-  available: 'bg-green-50 text-green-700 border-green-200',
-  soon: 'bg-amber-50 text-amber-700 border-amber-200',
-}
-
 export function LabsSection() {
   return (
     <Section
       id="labs"
       spacing="lg"
-      background="white"
+      className="bg-graphite relative overflow-hidden"
       aria-label="Inside ToolVault"
     >
-      <Container>
+      {/* Blueprint texture */}
+      <div
+        className="texture-blueprint pointer-events-none absolute inset-0"
+        aria-hidden="true"
+      />
+
+      {/* Cool cyan ambient glow */}
+      <div
+        className="pointer-events-none absolute inset-0"
+        aria-hidden="true"
+        style={{
+          background:
+            'radial-gradient(ellipse 60% 40% at 50% 20%, rgba(34, 211, 238, 0.06) 0%, transparent 60%)',
+        }}
+      />
+
+      <Container className="relative">
         <SectionHeader align="center">
-          <SectionTag>Inside ToolVault</SectionTag>
-          <SectionTitle>
+          <SectionTag className="border-white/10 bg-white/[0.03] text-white/70">
+            Inside ToolVault
+          </SectionTag>
+          <SectionTitle className="text-white">
             Every tool a builder could need — in one place
           </SectionTitle>
-          <SectionSubtitle>
+          <SectionSubtitle className="text-white/60">
             ToolVault is designed as a complete innovation ecosystem. Each lab
             is purpose-built, professionally equipped, and ready for serious
             work.
@@ -92,41 +105,32 @@ export function LabsSection() {
             <StaggerItem key={lab.name}>
               <div
                 className={cn(
-                  'group border-border-light relative flex h-full flex-col rounded-xl border bg-white p-6',
-                  'transition-all duration-200',
-                  'hover:border-primary-200 hover:shadow-hover hover:-translate-y-0.5'
+                  'group card-glass-dark relative flex h-full flex-col rounded-xl p-6',
+                  'transition-all duration-300',
+                  'hover:-translate-y-0.5'
                 )}
               >
-                {/* Image placeholder */}
-                <div className="bg-secondary-50 group-hover:bg-secondary-100 mb-5 flex h-40 w-full items-center justify-center rounded-lg transition-colors duration-200">
-                  <div className="text-secondary-300 flex flex-col items-center gap-2">
+                <div className="mb-5 flex h-40 w-full items-center justify-center rounded-lg bg-white/[0.02] transition-colors duration-300 group-hover:bg-white/[0.04]">
+                  <div className="flex flex-col items-center gap-2 text-white/30">
                     <lab.icon className="h-10 w-10" />
                     <span className="text-xs">Image Coming Soon</span>
                   </div>
                 </div>
 
-                {/* Category + Status */}
                 <div className="mb-3 flex items-center justify-between">
-                  <span className="text-secondary-400 text-xs font-medium tracking-wider uppercase">
+                  <span className="text-xs font-medium tracking-wider text-white/40 uppercase">
                     {lab.category}
                   </span>
-                  <span
-                    className={cn(
-                      'rounded-full border px-2 py-0.5 text-xs font-medium capitalize',
-                      statusStyles[lab.status]
-                    )}
-                  >
+                  <span className="rounded-full border border-green-400/20 bg-green-400/10 px-2 py-0.5 text-xs font-medium text-green-400 capitalize">
                     {lab.status}
                   </span>
                 </div>
 
-                {/* Name */}
-                <h3 className="text-secondary-900 mb-2 text-base font-semibold">
+                <h3 className="mb-2 text-base font-semibold text-white">
                   {lab.name}
                 </h3>
 
-                {/* Description */}
-                <p className="text-secondary-500 text-sm leading-relaxed">
+                <p className="text-sm leading-relaxed text-white/50">
                   {lab.description}
                 </p>
               </div>

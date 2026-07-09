@@ -39,7 +39,7 @@ export function ProblemSection() {
     <Section
       id="about"
       spacing="lg"
-      background="white"
+      className="bg-surface-warm"
       aria-label="The problem we solve"
     >
       <Container>
@@ -60,21 +60,19 @@ export function ProblemSection() {
             <StaggerItem key={problem.title}>
               <div
                 className={cn(
-                  'border-border-light flex h-full flex-col rounded-xl border bg-white p-8',
-                  'hover:border-secondary-200 transition-all duration-200 hover:shadow-md'
+                  'flex h-full flex-col rounded-xl border border-black/[0.06] bg-white p-8',
+                  'transition-all duration-200',
+                  'hover:border-black/[0.10] hover:shadow-md'
                 )}
               >
-                {/* Icon */}
-                <div className="bg-secondary-50 mb-6 flex h-12 w-12 items-center justify-center rounded-lg">
-                  <problem.icon className="text-secondary-500 h-6 w-6" />
+                <div className="bg-secondary-100 mb-6 flex h-12 w-12 items-center justify-center rounded-lg">
+                  <problem.icon className="text-secondary-600 h-6 w-6" />
                 </div>
 
-                {/* Tag */}
-                <div className="text-secondary-400 mb-4 text-xs font-medium tracking-wide uppercase">
+                <div className="text-gold-600 mb-4 text-xs font-medium tracking-wide uppercase">
                   {problem.tag}
                 </div>
 
-                {/* Content */}
                 <h3 className="text-secondary-900 mb-3 text-lg font-semibold">
                   {problem.title}
                 </h3>

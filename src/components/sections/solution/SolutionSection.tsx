@@ -50,7 +50,11 @@ const capabilities = [
 
 export function SolutionSection() {
   return (
-    <Section spacing="lg" background="light" aria-label="Our solution">
+    <Section
+      spacing="lg"
+      className="bg-surface-subtle"
+      aria-label="Our solution"
+    >
       <Container>
         <SectionHeader align="center">
           <SectionTag>The Solution</SectionTag>
@@ -63,7 +67,6 @@ export function SolutionSection() {
           </SectionSubtitle>
         </SectionHeader>
 
-        {/* Process Flow */}
         <FadeUp className="mb-20">
           <div className="mx-auto max-w-2xl">
             <div className="flex flex-col items-center gap-0">
@@ -71,10 +74,10 @@ export function SolutionSection() {
                 <div key={step.label} className="flex flex-col items-center">
                   <div
                     className={cn(
-                      'flex w-full max-w-xs flex-col items-center rounded-xl border px-8 py-5 text-center',
+                      'flex w-full max-w-xs flex-col items-center rounded-xl border px-8 py-5 text-center transition-all duration-300',
                       step.highlight
-                        ? 'border-primary-200 bg-primary-600 shadow-glow text-white'
-                        : 'border-border-light text-secondary-900 bg-white'
+                        ? 'border-primary-500/20 bg-primary-600 shadow-glow text-white'
+                        : 'text-secondary-900 border-black/[0.06] bg-white'
                     )}
                   >
                     <span
@@ -89,7 +92,7 @@ export function SolutionSection() {
                       className={cn(
                         'mt-1 text-xs',
                         step.highlight
-                          ? 'text-primary-200'
+                          ? 'text-primary-100'
                           : 'text-secondary-400'
                       )}
                     >
@@ -107,13 +110,12 @@ export function SolutionSection() {
           </div>
         </FadeUp>
 
-        {/* Capability Cards */}
         <StaggerContainer className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {capabilities.map(cap => (
             <StaggerItem key={cap.title}>
               <Stack
                 className={cn(
-                  'border-border-light h-full rounded-xl border bg-white p-6',
+                  'h-full rounded-xl border border-black/[0.06] bg-white p-6',
                   'hover:border-primary-200 transition-all duration-200 hover:shadow-md'
                 )}
                 gap="sm"
