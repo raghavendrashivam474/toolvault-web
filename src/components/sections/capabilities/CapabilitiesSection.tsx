@@ -81,13 +81,10 @@ export function CapabilitiesSection() {
       <Container>
         <SectionHeader align="center">
           <SectionTag>Capabilities</SectionTag>
-          <SectionTitle>
-            Everything you need. Nothing you don&apos;t.
-          </SectionTitle>
+          <SectionTitle>Everything a serious builder needs.</SectionTitle>
           <SectionSubtitle>
-            ToolVault is built around the complete lifecycle of an engineering
-            project — from the first spark of an idea to a fully realized
-            prototype.
+            ToolVault supports the full lifecycle of an engineering project —
+            from initial concept to a fully realized working prototype.
           </SectionSubtitle>
         </SectionHeader>
 

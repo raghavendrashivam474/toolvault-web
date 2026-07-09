@@ -1,4 +1,4 @@
-﻿import { ArrowDown, Lightbulb, Wrench, Rocket, Zap } from 'lucide-react'
+import { ArrowDown, Lightbulb, Wrench, Rocket, Zap } from 'lucide-react'
 import { Container, Stack } from '@/components/layout'
 import {
   Section,
@@ -55,11 +55,11 @@ export function SolutionSection() {
         <SectionHeader align="center">
           <SectionTag>The Solution</SectionTag>
           <SectionTitle>
-            One platform. Every tool. Infinite possibilities.
+            The complete engineering environment, under one roof.
           </SectionTitle>
           <SectionSubtitle>
-            ToolVault bridges the gap between idea and execution by providing
-            everything a builder needs under one roof.
+            ToolVault provides the infrastructure serious builders need to move
+            from concept to functional prototype without institutional friction.
           </SectionSubtitle>
         </SectionHeader>
 

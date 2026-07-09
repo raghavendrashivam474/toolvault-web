@@ -1,4 +1,4 @@
-﻿'use client'
+'use client'
 
 import { motion } from 'framer-motion'
 import { ArrowRight, ChevronDown } from 'lucide-react'
@@ -44,28 +44,27 @@ export function HeroSection() {
           {/* Overline tag */}
           <motion.div variants={staggerItem}>
             <span className="border-primary-500/30 bg-primary-500/10 text-primary-400 inline-block rounded-full border px-4 py-1.5 text-xs font-semibold tracking-widest uppercase">
-              Engineering Infrastructure
+              Engineering Infrastructure Platform
             </span>
           </motion.div>
 
           {/* Headline */}
           <motion.h1
             variants={staggerItem}
-            className="max-w-4xl text-5xl leading-[1.05] font-bold tracking-tight text-white md:text-6xl lg:text-7xl"
+            className="max-w-4xl text-5xl leading-[1.05] font-bold tracking-tight text-balance text-white md:text-6xl lg:text-7xl"
           >
-            Built for the Next Generation of{' '}
-            <span className="text-primary-400">Innovators</span>
+            Built for engineers who{' '}
+            <span className="text-primary-400">build the future</span>
           </motion.h1>
 
           {/* Subheading */}
           <motion.p
             variants={staggerItem}
-            className="text-secondary-400 max-w-2xl text-lg leading-relaxed md:text-xl"
+            className="text-secondary-400 max-w-2xl text-lg leading-relaxed text-balance md:text-xl"
           >
-            ToolVault is an engineering infrastructure platform providing
-            professional equipment, collaborative workspaces, expert mentorship,
-            and end-to-end prototyping support — everything you need to build
-            what matters.
+            Professional engineering equipment, collaborative workspaces, and
+            structured mentorship — the complete infrastructure for serious
+            builders, in one place.
           </motion.p>
 
           {/* CTA Buttons */}

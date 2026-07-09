@@ -1,4 +1,4 @@
-﻿import { AlertTriangle, Lock, Clock } from 'lucide-react'
+import { AlertTriangle, Lock, Clock } from 'lucide-react'
 import { Container } from '@/components/layout'
 import {
   Section,
@@ -16,24 +16,21 @@ const problems = [
     title: 'Prohibitive Infrastructure Costs',
     description:
       'Professional engineering equipment costs hundreds of thousands of dollars. Individual builders, students, and early-stage startups cannot access the tools they need to bring ideas to life.',
-    stat: '+',
-    statLabel: 'average lab setup cost',
+    tag: 'Cost',
   },
   {
     icon: Lock,
     title: 'Locked Behind Institutions',
     description:
       'Advanced tools exist inside universities and corporations — but access is restricted by enrollment, employment, or geography. Innovation should not be gated by circumstance.',
-    stat: '94%',
-    statLabel: 'of builders lack lab access',
+    tag: 'Access',
   },
   {
     icon: Clock,
     title: 'Delayed Time to Prototype',
     description:
       'Without infrastructure, builders spend months sourcing tools, renting space, and finding expertise. Every delay compounds into missed opportunities and abandoned ideas.',
-    stat: '6 months',
-    statLabel: 'average delay to first prototype',
+    tag: 'Time',
   },
 ]
 
@@ -49,12 +46,12 @@ export function ProblemSection() {
         <SectionHeader align="center">
           <SectionTag>The Problem</SectionTag>
           <SectionTitle>
-            Great ideas are dying from lack of infrastructure
+            Great ideas are stalled by missing infrastructure
           </SectionTitle>
           <SectionSubtitle>
             The gap between imagination and execution has never been more
-            expensive. Builders with world-changing potential are held back not
-            by talent — but by access.
+            expensive. Builders with real potential are held back not by talent
+            — but by access.
           </SectionSubtitle>
         </SectionHeader>
 
@@ -72,12 +69,9 @@ export function ProblemSection() {
                   <problem.icon className="text-secondary-500 h-6 w-6" />
                 </div>
 
-                {/* Stat */}
-                <div className="text-secondary-900 mb-1 text-3xl font-bold tracking-tight">
-                  {problem.stat}
-                </div>
-                <div className="text-secondary-400 mb-6 text-xs font-medium tracking-wide uppercase">
-                  {problem.statLabel}
+                {/* Tag */}
+                <div className="text-secondary-400 mb-4 text-xs font-medium tracking-wide uppercase">
+                  {problem.tag}
                 </div>
 
                 {/* Content */}
