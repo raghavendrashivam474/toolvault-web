@@ -1,4 +1,4 @@
-ï»¿import {
+import {
   Wrench,
   Building2,
   GraduationCap,
@@ -37,7 +37,7 @@ const capabilities = [
     icon: GraduationCap,
     title: 'Build Mentorship',
     description:
-      'Structured access to engineering mentors across disciplines â€” from hardware design to system architecture.',
+      'Structured access to engineering mentors across disciplines — from hardware design to system architecture.',
     available: true,
   },
   {
@@ -81,10 +81,10 @@ export function CapabilitiesSection() {
       <Container>
         <SectionHeader align="center">
           <SectionTag>Capabilities</SectionTag>
-          <SectionTitle>Everything you need. Nothing you don't.</SectionTitle>
+          <SectionTitle>Everything you need. Nothing you don&apos;t.</SectionTitle>
           <SectionSubtitle>
             ToolVault is built around the complete lifecycle of an engineering
-            project â€” from the first spark of an idea to a fully realized
+            project — from the first spark of an idea to a fully realized
             prototype.
           </SectionSubtitle>
         </SectionHeader>
