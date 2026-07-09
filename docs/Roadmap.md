@@ -77,3 +77,20 @@ Deployed to Vercel.
 - [ ] Member portal
 - [ ] Equipment booking system
 - [ ] Workshop registration
+
+## Sprint 6 — QA & Production Hardening (Complete) — v1.0.0
+
+- [x] Discovery wave — systematic code + manual testing
+- [x] Fixed 320px horizontal scroll (Hero typography + global overflow-x)
+- [x] Wired up 3 broken CTAs (Hero, Nav, CTA section)
+- [x] Removed 11 dead placeholder links
+- [x] Nav and Footer logos scroll to top
+- [x] Real email integrated (raghavendrashivam474@gmail.com)
+- [x] Full responsive validation (320px through 1920px)
+- [x] Accessibility audit passed
+- [x] Performance validated on production PageSpeed Insights
+- [x] All SEO endpoints verified
+- [x] Cross-browser check
+- [x] QA report + Release notes v1.0.0
+
+See docs/Sprint-6-Findings.md and docs/RELEASE-NOTES.md
