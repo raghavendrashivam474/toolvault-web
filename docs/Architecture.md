@@ -1,4 +1,4 @@
-﻿# Technical Architecture — ToolVault
+# Technical Architecture — ToolVault
 
 **Version:** v0.3.0
 **Status:** Active
@@ -175,3 +175,50 @@ Target: Vercel
 Branch: main -> production
 Build: next build — static output
 Route: / — statically prerendered
+
+## 11. Production Deployment
+
+**Live URL:** https://toolvault-web.vercel.app
+**Platform:** Vercel
+**Build:** Static (all 10 routes prerendered)
+**CDN:** Vercel Edge Network (global)
+**Build command:** next build
+**Deployed:** Sprint 4 completion
+
+### Deployment Routes
+
+| Route                 | Type                 |
+| --------------------- | -------------------- |
+| /                     | Static               |
+| /_not-found           | Static               |
+| /apple-icon           | Static (dynamic PNG) |
+| /icon.svg             | Static               |
+| /manifest.webmanifest | Static               |
+| /opengraph-image      | Static (dynamic PNG) |
+| /robots.txt           | Static               |
+| /sitemap.xml          | Static               |
+| /twitter-image        | Static (dynamic PNG) |
+
+### Security Headers Applied
+
+- X-DNS-Prefetch-Control: on
+- X-Frame-Options: SAMEORIGIN
+- X-Content-Type-Options: nosniff
+- Referrer-Policy: strict-origin-when-cross-origin
+- Permissions-Policy: camera=(), microphone=(), geolocation=()
+
+### Lighthouse Scores (Production)
+
+| Category       | Desktop | Mobile |
+| -------------- | ------- | ------ |
+| Performance    | 100     | 96     |
+| Accessibility  | 100     | 100    |
+| Best Practices | 100     | 100    |
+| SEO            | 100     | 100    |
+
+Core Web Vitals — all in Google's Good threshold:
+
+- FCP: 0.9s
+- LCP: 2.4s
+- TBT: 50ms
+- CLS: 0

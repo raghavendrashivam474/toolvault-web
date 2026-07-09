@@ -1,14 +1,9 @@
-﻿# Development Roadmap — ToolVault
+# Development Roadmap — ToolVault
 
-**Version:** v0.3.0
-**Status:** Active
-**Last Updated:** 2026-07-09
-
----
-
-## Overview
-
-Three sprints completed. Homepage is live. Foundation is production-grade.
+**Version:** v0.4.0
+**Status:** Sprint 4 Complete
+**Last Updated:** $(Get-Date -Format "yyyy-MM-dd")
+**Live:** https://toolvault-web.vercel.app
 
 ---
 
@@ -19,72 +14,58 @@ Three sprints completed. Homepage is live. Foundation is production-grade.
 - [x] TypeScript strict mode
 - [x] Tailwind CSS v4
 - [x] ESLint and Prettier
-- [x] Folder structure
-- [x] Dependencies installed
-- [x] Documentation placeholders
-- [x] Vercel deployment ready
+- [x] Folder structure and documentation
 
 ## Sprint 2 — UI Foundation (Complete)
 
 - [x] Design token system
-- [x] Tailwind theme configuration
-- [x] Global styles
-- [x] Typography component (11 variants)
-- [x] Layout primitives (Container, Stack, Grid, Spacer, Divider)
-- [x] Button component (5 variants, 4 sizes, accessibility)
-- [x] Card components (Card, FeatureCard, StatCard)
-- [x] Section components (Section, SectionHeader, SectionTag etc.)
-- [x] Framer Motion presets and motion components
-- [x] Custom hooks (useReducedMotion, useMediaQuery, useScrolled)
-- [x] Providers (MotionProvider, AppProviders)
-- [x] Constants and utilities
+- [x] Typography, Layout, Button, Card, Section components
+- [x] Framer Motion animation library
+- [x] Custom hooks and utilities
 
 ## Sprint 3 — Homepage (Complete)
 
-- [x] Sticky responsive navigation with mobile menu
-- [x] Hero section with entrance animations
-- [x] Problem section with stat cards
-- [x] Solution section with process flow
-- [x] Inside ToolVault — labs feature cards
-- [x] Capabilities grid with coming soon state
-- [x] Why ToolVault pillar cards
-- [x] Vision section with alternating timeline
-- [x] Roadmap section with phase status
-- [x] CTA section with founding principle quote
-- [x] Footer with navigation and social links
-- [x] Homepage assembly
+- [x] Responsive navigation with mobile menu
+- [x] Hero, Problem, Solution, Labs, Capabilities sections
+- [x] Why ToolVault pillars, Vision with timeline
+- [x] Roadmap with phase status
+- [x] CTA and Footer
 - [x] Full accessibility implementation
-- [x] Zero TypeScript errors
-- [x] Zero ESLint warnings
-- [x] Production build passing
 
-## Sprint 4 — Content and Assets (Planned)
+## Sprint 4 — Production Polish (Complete)
+
+- [x] Character encoding fix
+- [x] Loading, error, not-found, and global-error pages
+- [x] SEO — robots, sitemap, manifest, JSON-LD schema
+- [x] Dynamic OG image, Twitter image, favicon, apple icon
+- [x] Motion refinement and reduced-motion support
+- [x] Accessibility improvements (skip link, focus refinement)
+- [x] Security headers and font optimization
+- [x] Content audit and copy refinement
+- [x] Responsive audit passed
+- [x] Lighthouse — 100/100/100/100 desktop, 96/100/100/100 mobile
+- [x] Vercel deployment live
+
+## Sprint 5 — Content and Assets (Planned)
 
 - [ ] Real photography replacing placeholders
 - [ ] Video content integration
+- [ ] Custom domain (toolvault.io)
 - [ ] Contact form with backend
 - [ ] Email waitlist capture
 - [ ] Analytics integration (Vercel Analytics)
-- [ ] SEO audit and optimization
-- [ ] Performance audit (Lighthouse >= 95)
-- [ ] Accessibility audit (WCAG 2.1 AA)
-- [ ] Domain configuration
-- [ ] Open Graph image
 
-## Sprint 5 — Polish and Launch (Planned)
+## Sprint 6 — Feature Expansion (Planned)
 
-- [ ] Dark mode implementation
-- [ ] Advanced animations
-- [ ] Cross-browser testing
-- [ ] Mobile device testing
-- [ ] Final Lighthouse audit
-- [ ] Public launch
+- [ ] Member portal
+- [ ] Equipment booking system
+- [ ] Workshop registration
+- [ ] Community platform
+- [ ] Blog and content system
 
-## Future Sprints
+## Future Considerations
 
-- Member portal
-- Equipment booking system
-- Workshop registration
-- Community platform
-- Blog and content
+- Dark mode
+- Multi-language support
 - Partner portal
+- Payment integration

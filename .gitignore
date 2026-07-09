@@ -49,3 +49,4 @@ coverage/
 # AI assistant files (auto-generated, not part of project)
 AGENTS.md
 CLAUDE.md
+.vercel
