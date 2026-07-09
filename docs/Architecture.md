@@ -10,48 +10,48 @@
 
 ## 2. Technology Stack
 
-| Layer      | Technology            |
-|------------|-----------------------|
-| Framework  | Next.js (App Router)  |
-| Language   | TypeScript            |
-| Styling    | Tailwind CSS          |
-| Animation  | Framer Motion         |
-| Icons      | Lucide React          |
-| Deployment | Vercel                |
+| Layer      | Technology           |
+| ---------- | -------------------- |
+| Framework  | Next.js (App Router) |
+| Language   | TypeScript           |
+| Styling    | Tailwind CSS         |
+| Animation  | Framer Motion        |
+| Icons      | Lucide React         |
+| Deployment | Vercel               |
 
 ## 3. Folder Structure
 
 src/
-  app/                         Next.js App Router pages and layouts
-  components/
-    layout/                    Page layout wrappers
-    navigation/                Navigation components
-    buttons/                   Button variants
-    cards/                     Card components
-    sections/                  Page section components
-      hero/
-      problem/
-      solution/
-      labs/
-      capabilities/
-      vision/
-      roadmap/
-      cta/
-      footer/
-  animations/                  Framer Motion variants and configs
-  hooks/                       Custom React hooks
-  lib/                         Third-party library configurations
-  styles/                      Global styles
-  types/                       TypeScript type definitions
-  utils/                       Utility functions
-  constants/                   Application constants
-  assets/                      Static assets
+app/ Next.js App Router pages and layouts
+components/
+layout/ Page layout wrappers
+navigation/ Navigation components
+buttons/ Button variants
+cards/ Card components
+sections/ Page section components
+hero/
+problem/
+solution/
+labs/
+capabilities/
+vision/
+roadmap/
+cta/
+footer/
+animations/ Framer Motion variants and configs
+hooks/ Custom React hooks
+lib/ Third-party library configurations
+styles/ Global styles
+types/ TypeScript type definitions
+utils/ Utility functions
+constants/ Application constants
+assets/ Static assets
 public/
-  images/
-  icons/
-  videos/
-  documents/
-docs/                          Project documentation
+images/
+icons/
+videos/
+documents/
+docs/ Project documentation
 
 ## 4. Routing Strategy
 

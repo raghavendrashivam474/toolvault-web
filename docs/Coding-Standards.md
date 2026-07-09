@@ -15,15 +15,15 @@
 
 ## 2. Naming Conventions
 
-| Context               | Convention  | Example                    |
-|-----------------------|-------------|----------------------------|
-| Components            | PascalCase  | HeroSection.tsx            |
-| Hooks                 | camelCase   | useScrollPosition.ts       |
-| Utilities             | camelCase   | formatDate.ts              |
-| Constants             | UPPER_SNAKE | MAX_RETRIES                |
-| Folders               | kebab-case  | hero-section/              |
-| TypeScript types      | PascalCase  | ButtonProps                |
-| TypeScript interfaces | PascalCase  | NavigationItem             |
+| Context               | Convention  | Example              |
+| --------------------- | ----------- | -------------------- |
+| Components            | PascalCase  | HeroSection.tsx      |
+| Hooks                 | camelCase   | useScrollPosition.ts |
+| Utilities             | camelCase   | formatDate.ts        |
+| Constants             | UPPER_SNAKE | MAX_RETRIES          |
+| Folders               | kebab-case  | hero-section/        |
+| TypeScript types      | PascalCase  | ButtonProps          |
+| TypeScript interfaces | PascalCase  | NavigationItem       |
 
 ## 3. TypeScript Standards
 
@@ -60,22 +60,22 @@ See .prettierrc for full configuration.
 Format: type(scope): description
 
 Types:
-  feat     new feature
-  fix      bug fix
-  chore    maintenance
-  docs     documentation
-  build    build system
-  style    formatting
-  refactor code restructure
-  perf     performance
-  test     tests
+feat new feature
+fix bug fix
+chore maintenance
+docs documentation
+build build system
+style formatting
+refactor code restructure
+perf performance
+test tests
 
 ## 9. File Structure Per Component
 
 ComponentName/
-  index.ts               Re-export
-  ComponentName.tsx      Component implementation
-  ComponentName.types.ts Type definitions if complex
+index.ts Re-export
+ComponentName.tsx Component implementation
+ComponentName.types.ts Type definitions if complex
 
 ## 10. Accessibility Requirements
 
