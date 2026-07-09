@@ -35,75 +35,69 @@ export function HeroSection() {
       />
 
       <Container>
-        <motion.div
-          variants={staggerContainer}
-          initial="hidden"
-          animate="visible"
-          className="flex flex-col items-center gap-8 py-32 text-center"
-        >
-          {/* Overline tag */}
-          <motion.div variants={staggerItem}>
-            <span className="border-primary-500/30 bg-primary-500/10 text-primary-400 inline-block rounded-full border px-4 py-1.5 text-xs font-semibold tracking-widest uppercase">
-              Engineering Infrastructure Platform
-            </span>
-          </motion.div>
+        <div className="flex flex-col items-center gap-8 py-32 text-center">
+          {/* LCP element — rendered immediately, no animation delay */}
+          <span className="border-primary-500/30 bg-primary-500/10 text-primary-400 inline-block rounded-full border px-4 py-1.5 text-xs font-semibold tracking-widest uppercase">
+            Engineering Infrastructure Platform
+          </span>
 
-          {/* Headline */}
-          <motion.h1
-            variants={staggerItem}
-            className="max-w-4xl text-5xl leading-[1.05] font-bold tracking-tight text-balance text-white md:text-6xl lg:text-7xl"
-          >
+          <h1 className="max-w-4xl text-5xl leading-[1.05] font-bold tracking-tight text-balance text-white md:text-6xl lg:text-7xl">
             Built for engineers who{' '}
             <span className="text-primary-400">build the future</span>
-          </motion.h1>
+          </h1>
 
-          {/* Subheading */}
-          <motion.p
-            variants={staggerItem}
-            className="text-secondary-400 max-w-2xl text-lg leading-relaxed text-balance md:text-xl"
-          >
-            Professional engineering equipment, collaborative workspaces, and
-            structured mentorship — the complete infrastructure for serious
-            builders, in one place.
-          </motion.p>
-
-          {/* CTA Buttons */}
+          {/* Animated content below the fold priority */}
           <motion.div
-            variants={staggerItem}
-            className="flex flex-col items-center gap-3 sm:flex-row"
+            variants={staggerContainer}
+            initial="hidden"
+            animate="visible"
+            className="flex flex-col items-center gap-8"
           >
-            <Button
-              variant="primary"
-              size="lg"
-              rightIcon={<ArrowRight className="h-4 w-4" />}
+            <motion.p
+              variants={staggerItem}
+              className="text-secondary-400 max-w-2xl text-lg leading-relaxed text-balance md:text-xl"
             >
-              Explore ToolVault
-            </Button>
-            <Button variant="ghost" size="lg">
-              <span className="text-secondary-300 hover:text-white">
-                Learn More
-              </span>
-            </Button>
-          </motion.div>
+              Professional engineering equipment, collaborative workspaces, and
+              structured mentorship — the complete infrastructure for serious
+              builders, in one place.
+            </motion.p>
 
-          {/* Trust indicators */}
-          <motion.div
-            variants={staggerItem}
-            className="text-secondary-500 flex flex-wrap items-center justify-center gap-6 text-xs"
-          >
-            {[
-              'Professional Equipment',
-              'Expert Mentorship',
-              'Collaborative Labs',
-              'End-to-End Prototyping',
-            ].map(item => (
-              <span key={item} className="flex items-center gap-2">
-                <span className="bg-primary-500 h-1 w-1 rounded-full" />
-                {item}
-              </span>
-            ))}
+            <motion.div
+              variants={staggerItem}
+              className="flex flex-col items-center gap-3 sm:flex-row"
+            >
+              <Button
+                variant="primary"
+                size="lg"
+                rightIcon={<ArrowRight className="h-4 w-4" />}
+              >
+                Explore ToolVault
+              </Button>
+              <Button variant="ghost" size="lg">
+                <span className="text-secondary-300 hover:text-white">
+                  Learn More
+                </span>
+              </Button>
+            </motion.div>
+
+            <motion.div
+              variants={staggerItem}
+              className="text-secondary-500 flex flex-wrap items-center justify-center gap-6 text-xs"
+            >
+              {[
+                'Professional Equipment',
+                'Expert Mentorship',
+                'Collaborative Labs',
+                'End-to-End Prototyping',
+              ].map(item => (
+                <span key={item} className="flex items-center gap-2">
+                  <span className="bg-primary-500 h-1 w-1 rounded-full" />
+                  {item}
+                </span>
+              ))}
+            </motion.div>
           </motion.div>
-        </motion.div>
+        </div>
       </Container>
 
       {/* Scroll indicator */}
