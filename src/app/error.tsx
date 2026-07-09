@@ -14,6 +14,7 @@ export default function ErrorPage({ error, reset }: ErrorPageProps) {
   useEffect(() => {
     // In production, forward to an error reporting service
     if (process.env.NODE_ENV !== 'production') {
+      // eslint-disable-next-line no-console
       console.error('Application error:', error)
     }
   }, [error])
