@@ -1,9 +1,9 @@
-﻿/**
- * ToolVault Design Tokens — Colors
+/**
+ * ToolVault Design Tokens — Colors (Sprint 5 refined palette)
  *
- * All color values are defined here.
- * No component should hardcode a color value.
- * Reference these tokens via Tailwind CSS custom properties.
+ * Warmer neutrals replace pure whites and pure blacks.
+ * Dark sections use a hierarchy of graphite tones for visual variety.
+ * Gold accent added for subtle warmth (used sparingly).
  */
 
 export const colors = {
@@ -46,52 +46,60 @@ export const colors = {
     900: '#164e63',
     950: '#083344',
   },
-  background: {
-    primary: '#ffffff',
-    secondary: '#f8fafc',
-    tertiary: '#f1f5f9',
-    inverse: '#0f172a',
-  },
+
+  // Sprint 5 — Warm neutral surfaces
   surface: {
-    primary: '#ffffff',
-    secondary: '#f8fafc',
-    elevated: '#ffffff',
-    overlay: 'rgba(15, 23, 42, 0.6)',
+    warm: '#fafaf9',      // Warm White — primary light sections
+    subtle: '#f7f7f5',    // Surface — subtle contrast between whites
+    light: '#f5f5f4',     // Light Gray — softest neutral for detail sections
+    elevated: '#ffffff',  // Pure white — only for elevated card surfaces
   },
+
+  // Sprint 5 — Dark tone hierarchy (each section a different room)
+  graphite: {
+    deep: '#0b0f1a',      // Hero — dramatic intro
+    default: '#111827',   // Labs, CTA — workspace and close
+    midnight: '#0f172a',  // Vision — contemplative
+    black: '#05070d',     // Footer — grounded finality
+  },
+
+  // Sprint 5 — Gold accent (used sparingly)
+  gold: {
+    50: '#fdf9f0',
+    100: '#faf0d9',
+    200: '#f3dea8',
+    300: '#e9c37a',
+    400: '#dfa953',
+    500: '#d4a574',      // Primary gold — warm amber
+    600: '#b8874d',
+    700: '#916738',
+    800: '#6b4b2a',
+    900: '#4a341f',
+  },
+
   border: {
-    light: '#e2e8f0',
-    default: '#cbd5e1',
-    strong: '#94a3b8',
+    light: '#e7e5e4',
+    default: '#d6d3d1',
+    strong: '#a8a29e',
     focus: '#6270f1',
+    darkGlass: 'rgba(255,255,255,0.04)',
+    darkGlassStrong: 'rgba(255,255,255,0.08)',
   },
+
   text: {
     primary: '#0f172a',
     secondary: '#475569',
     tertiary: '#94a3b8',
-    inverse: '#ffffff',
+    inverse: '#fafaf9',
     muted: '#64748b',
     accent: '#6270f1',
+    gold: '#d4a574',
   },
-  success: {
-    light: '#f0fdf4',
-    default: '#22c55e',
-    dark: '#15803d',
-  },
-  warning: {
-    light: '#fffbeb',
-    default: '#f59e0b',
-    dark: '#b45309',
-  },
-  error: {
-    light: '#fef2f2',
-    default: '#ef4444',
-    dark: '#b91c1c',
-  },
-  info: {
-    light: '#eff6ff',
-    default: '#3b82f6',
-    dark: '#1d4ed8',
-  },
+
+  success: { light: '#f0fdf4', default: '#22c55e', dark: '#15803d' },
+  warning: { light: '#fffbeb', default: '#f59e0b', dark: '#b45309' },
+  error:   { light: '#fef2f2', default: '#ef4444', dark: '#b91c1c' },
+  info:    { light: '#eff6ff', default: '#3b82f6', dark: '#1d4ed8' },
 } as const
 
 export type Colors = typeof colors

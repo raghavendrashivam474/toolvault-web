@@ -1,4 +1,5 @@
 import { SkipLink } from '@/components/a11y'
+import { ScrollProgress } from '@/components/ui'
 import { Navbar } from '@/components/navigation'
 import { HeroSection } from '@/components/sections/hero'
 import { ProblemSection } from '@/components/sections/problem'
@@ -14,6 +15,7 @@ export default function HomePage() {
   return (
     <>
       <SkipLink />
+      <ScrollProgress />
       <Navbar />
       <main id="main-content" tabIndex={-1}>
         <HeroSection />
