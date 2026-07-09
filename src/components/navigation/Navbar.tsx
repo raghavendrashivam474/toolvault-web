@@ -13,7 +13,33 @@ export function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
   const toggleMobileMenu = () => setIsMobileMenuOpen(prev => !prev)
-  const closeMobileMenu = () => setIsMobileMenuOpen(false)
+
+  /**
+   * Handle mobile nav link tap.
+   * Manually scroll to the target section, then close the menu.
+   * Doing this in code (instead of relying on native anchor + onClick)
+   * ensures the navigation completes before the menu exit animation
+   * unmounts the link element on touch devices.
+   */
+  const handleMobileLinkClick = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    href: string
+  ) => {
+    e.preventDefault()
+    setIsMobileMenuOpen(false)
+
+    // Wait for menu close animation to start, then scroll
+    setTimeout(() => {
+      if (href.startsWith('#')) {
+        const target = document.querySelector(href)
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' })
+        }
+      } else {
+        window.location.href = href
+      }
+    }, 50)
+  }
 
   return (
     <header
@@ -74,6 +100,7 @@ export function Navbar() {
         </div>
 
         <button
+          type="button"
           className={cn(
             'flex h-10 w-10 items-center justify-center rounded-lg transition-colors md:hidden',
             'focus-visible:outline-2 focus-visible:outline-offset-2',
@@ -112,7 +139,7 @@ export function Navbar() {
                 <a
                   key={link.href}
                   href={link.href}
-                  onClick={closeMobileMenu}
+                  onClick={e => handleMobileLinkClick(e, link.href)}
                   className={cn(
                     'rounded-lg px-3 py-2.5 text-sm font-medium transition-colors',
                     isScrolled
@@ -129,7 +156,11 @@ export function Navbar() {
                   isScrolled ? 'border-black/[0.06]' : 'border-white/10'
                 )}
               >
-                <a href={CTA_LINK.href} onClick={closeMobileMenu}>
+                <a
+                  href={CTA_LINK.href}
+                  onClick={e => handleMobileLinkClick(e, CTA_LINK.href)}
+                  className="block"
+                >
                   <Button variant="primary" size="md" fullWidth>
                     {CTA_LINK.label}
                   </Button>
