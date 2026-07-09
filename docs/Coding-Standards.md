@@ -1,7 +1,7 @@
 ﻿# Coding Standards — ToolVault
 
-**Version:** v0.1.0
-**Status:** Draft
+**Version:** v0.2.0
+**Status:** Active
 **Last Updated:** 2026-07-09
 
 ---
@@ -12,6 +12,11 @@
 - Prefer clarity over cleverness
 - Keep functions small and focused
 - Avoid premature optimization
+- No dead code
+- No console statements in production code
+- No TODO comments — create a ticket instead
+
+---
 
 ## 2. Naming Conventions
 
@@ -24,63 +29,105 @@
 | Folders               | kebab-case  | hero-section/        |
 | TypeScript types      | PascalCase  | ButtonProps          |
 | TypeScript interfaces | PascalCase  | NavigationItem       |
+| CSS custom properties | kebab-case  | --color-primary      |
+
+---
 
 ## 3. TypeScript Standards
 
-- Strict mode enabled
-- No implicit any
-- Explicit return types on functions
+- Strict mode enabled (noImplicitAny, noUnusedLocals, noUnusedParameters)
+- No explicit any
+- Explicit prop interfaces for every component
 - Prefer interfaces for object shapes
 - Prefer type aliases for unions and primitives
+- Use type imports: import type { Foo } from './Foo'
+
+---
 
 ## 4. Component Standards
 
 - One component per file
-- Props interface defined above component
-- Default exports for page components
-- Named exports for UI components
+- Props interface defined in a .types.ts file for complex components
+- Named exports for all UI components
+- Default exports only for Next.js page and layout files
+- 'use client' directive only where client-side state or effects are required
+- No business logic inside UI components
+
+---
 
 ## 5. Import Ordering
 
-1. React and Next.js
-2. Third-party libraries
-3. Internal absolute imports
-4. Types
+1. React and Next.js core
+2. Third-party libraries (framer-motion, lucide-react)
+3. Internal absolute imports (@/components, @/utils, @/hooks)
+4. Relative imports
+5. Type imports last
 
-## 6. ESLint Rules
+Prettier and ESLint enforce this automatically.
 
-See .eslintrc.json for full configuration.
+---
 
-## 7. Prettier Rules
+## 6. Tailwind Standards
 
-See .prettierrc for full configuration.
+- Use design tokens via Tailwind utility classes only
+- No arbitrary values (avoid w-[347px])
+- No inline styles unless dynamically computed
+- Use cn() for conditional class merging
+- Class order enforced by prettier-plugin-tailwindcss
+
+---
+
+## 7. Animation Standards
+
+- All animations use presets from src/animations/
+- Never animate opacity and transform separately — combine
+- Always test with prefers-reduced-motion enabled
+- Keep animation duration under 500ms for UI elements
+- Use viewport-based triggers (whileInView) for scroll animations
+
+---
 
 ## 8. Git Commit Standards
 
 Format: type(scope): description
 
 Types:
-feat new feature
+feat new feature or component
 fix bug fix
-chore maintenance
-docs documentation
-build build system
-style formatting
-refactor code restructure
-perf performance
-test tests
+chore maintenance, config, tooling
+docs documentation only
+build build system or dependencies
+style formatting, no logic change
+refactor code restructure, no behaviour change
+perf performance improvement
+test test additions or changes
 
-## 9. File Structure Per Component
+Examples:
+feat(ui): implement Button component
+feat(layout): create responsive Container
+docs: update architecture documentation
+chore: upgrade dependencies
 
-ComponentName/
-index.ts Re-export
-ComponentName.tsx Component implementation
-ComponentName.types.ts Type definitions if complex
+---
 
-## 10. Accessibility Requirements
+## 9. Accessibility Standards
 
-- All images must have descriptive alt text
-- Interactive elements must be keyboard accessible
-- Color contrast must meet WCAG 2.1 AA minimum
+Every component must:
+
 - Use semantic HTML elements
-- ARIA labels where semantic HTML is insufficient
+- Support keyboard navigation
+- Have visible focus indicators
+- Include ARIA attributes where semantics are insufficient
+- Never rely on color alone to convey information
+
+---
+
+## 10. File Checklist Before Committing
+
+- [ ] npx tsc --noEmit passes
+- [ ] npm run lint passes
+- [ ] npx prettier --check passes
+- [ ] No console.log statements
+- [ ] No unused imports
+- [ ] Props are typed
+- [ ] Component is exported from its index.ts
