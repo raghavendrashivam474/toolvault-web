@@ -1,4 +1,4 @@
-﻿import { Shield, Compass, Users, Award, Hammer, TrendingUp } from 'lucide-react'
+import { Shield, Compass, Users, Award, Hammer, TrendingUp } from 'lucide-react'
 import { Container } from '@/components/layout'
 import {
   Section,
@@ -51,7 +51,11 @@ const pillars = [
 
 export function WhySection() {
   return (
-    <Section spacing="lg" background="white" aria-label="Why ToolVault">
+    <Section
+      spacing="lg"
+      className="bg-surface-subtle"
+      aria-label="Why ToolVault"
+    >
       <Container>
         <SectionHeader align="center">
           <SectionTag>Why ToolVault</SectionTag>
@@ -68,11 +72,11 @@ export function WhySection() {
             <StaggerItem key={pillar.title}>
               <div
                 className={cn(
-                  'group border-border-light flex h-full flex-col rounded-xl border bg-white p-8',
+                  'group flex h-full flex-col rounded-xl border border-black/[0.06] bg-white p-8',
                   'hover:border-primary-200 transition-all duration-200 hover:shadow-md'
                 )}
               >
-                <div className="bg-secondary-900 group-hover:bg-primary-600 mb-5 flex h-12 w-12 items-center justify-center rounded-xl text-white transition-colors duration-200">
+                <div className="bg-secondary-900 group-hover:bg-primary-600 mb-5 flex h-12 w-12 items-center justify-center rounded-xl text-white transition-colors duration-300">
                   <pillar.icon className="h-6 w-6" />
                 </div>
                 <h3 className="text-secondary-900 mb-3 text-base font-semibold">

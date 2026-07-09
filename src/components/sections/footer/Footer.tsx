@@ -1,4 +1,4 @@
-﻿import { Globe, MessageCircle, Briefcase, Mail } from 'lucide-react'
+import { Globe, MessageCircle, Briefcase, Mail } from 'lucide-react'
 import { Container, Stack } from '@/components/layout'
 import { SITE } from '@/constants'
 import { cn } from '@/utils/cn'
@@ -36,13 +36,11 @@ export function Footer() {
 
   return (
     <footer
-      className="border-secondary-800 bg-secondary-950 border-t"
+      className="bg-graphite-black border-t border-white/[0.06]"
       aria-label="Footer"
     >
       <Container>
-        {/* Top section */}
         <div className="grid gap-12 py-16 lg:grid-cols-5">
-          {/* Brand column */}
           <div className="lg:col-span-2">
             <Stack gap="md">
               <a
@@ -51,7 +49,7 @@ export function Footer() {
               >
                 {SITE.name}
               </a>
-              <p className="text-secondary-400 max-w-xs text-sm leading-relaxed">
+              <p className="max-w-xs text-sm leading-relaxed text-white/50">
                 Engineering infrastructure for innovators. Professional tools,
                 collaborative workspaces, and expert guidance — under one roof.
               </p>
@@ -64,8 +62,8 @@ export function Footer() {
                     aria-label={social.label}
                     className={cn(
                       'flex h-9 w-9 items-center justify-center rounded-lg',
-                      'text-secondary-500 transition-colors duration-150',
-                      'hover:bg-secondary-800 hover:text-secondary-200'
+                      'text-white/40 transition-colors duration-200',
+                      'hover:bg-white/[0.05] hover:text-white/80'
                     )}
                   >
                     <social.Icon className="h-4 w-4" />
@@ -75,11 +73,10 @@ export function Footer() {
             </Stack>
           </div>
 
-          {/* Navigation columns */}
           <div className="grid gap-8 sm:grid-cols-3 lg:col-span-3">
             {Object.entries(footerLinks).map(([category, links]) => (
               <Stack key={category} gap="sm">
-                <h3 className="text-secondary-400 text-xs font-semibold tracking-widest uppercase">
+                <h3 className="text-xs font-semibold tracking-widest text-white/40 uppercase">
                   {category}
                 </h3>
                 <Stack gap="xs">
@@ -87,7 +84,7 @@ export function Footer() {
                     <a
                       key={link.label}
                       href={link.href}
-                      className="text-secondary-500 hover:text-secondary-200 text-sm transition-colors duration-150"
+                      className="text-sm text-white/60 transition-colors duration-200 hover:text-white"
                     >
                       {link.label}
                     </a>
@@ -98,17 +95,15 @@ export function Footer() {
           </div>
         </div>
 
-        {/* Bottom bar */}
-        <div className="border-secondary-800 flex flex-col items-center justify-between gap-4 border-t py-6 sm:flex-row">
-          <p className="text-secondary-600 text-xs">
+        <div className="flex flex-col items-center justify-between gap-4 border-t border-white/[0.06] py-6 sm:flex-row">
+          <p className="text-xs text-white/40">
             &copy; {currentYear} {SITE.name}. All rights reserved.
           </p>
-          <p className="text-secondary-700 text-xs">v0.3.0 — Sprint 3</p>
+          <p className="text-xs text-white/30">v0.5.0 — Sprint 5</p>
         </div>
 
-        {/* Founder note */}
-        <div className="border-secondary-800 border-t py-6 text-center">
-          <p className="text-secondary-700 text-xs italic">
+        <div className="border-t border-white/[0.06] py-6 text-center">
+          <p className="text-xs text-white/30 italic">
             Built with precision. Designed for builders. Committed to the long
             term. — ToolVault Founding Team
           </p>

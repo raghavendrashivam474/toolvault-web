@@ -75,7 +75,7 @@ export function CapabilitiesSection() {
     <Section
       id="capabilities"
       spacing="lg"
-      background="light"
+      className="bg-surface-warm"
       aria-label="Capabilities"
     >
       <Container>
@@ -93,17 +93,16 @@ export function CapabilitiesSection() {
             <StaggerItem key={cap.title}>
               <div
                 className={cn(
-                  'group flex h-full flex-col rounded-xl border bg-white p-6',
-                  'transition-all duration-200',
+                  'group flex h-full flex-col rounded-xl border bg-white p-6 transition-all duration-200',
                   cap.available
-                    ? 'border-border-light hover:border-primary-200 hover:shadow-md'
-                    : 'border-border-light opacity-70'
+                    ? 'hover:border-primary-200 border-black/[0.06] hover:shadow-md'
+                    : 'border-black/[0.06] opacity-70'
                 )}
               >
                 <div
                   className={cn(
                     'mb-4 flex h-10 w-10 items-center justify-center rounded-lg',
-                    cap.available ? 'bg-primary-50' : 'bg-secondary-50'
+                    cap.available ? 'bg-primary-50' : 'bg-secondary-100'
                   )}
                 >
                   <cap.icon
@@ -119,7 +118,7 @@ export function CapabilitiesSection() {
                     {cap.title}
                   </h3>
                   {!cap.available && (
-                    <span className="shrink-0 rounded-full border border-amber-200 bg-amber-50 px-2 py-0.5 text-xs font-medium text-amber-700">
+                    <span className="border-gold-200 bg-gold-50 text-gold-700 shrink-0 rounded-full border px-2 py-0.5 text-xs font-medium">
                       Soon
                     </span>
                   )}

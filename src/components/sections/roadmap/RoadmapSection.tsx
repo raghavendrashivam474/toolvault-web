@@ -1,4 +1,4 @@
-﻿import { CheckCircle2, Circle, Clock } from 'lucide-react'
+import { CheckCircle2, Circle, Clock } from 'lucide-react'
 import { Container } from '@/components/layout'
 import {
   Section,
@@ -102,30 +102,35 @@ const phases: RoadmapPhase[] = [
 const statusConfig = {
   complete: {
     Icon: CheckCircle2,
-    color: 'text-green-600',
+    color: 'text-green-700',
     bg: 'bg-green-50',
     border: 'border-green-200',
     label: 'Complete',
   },
   active: {
     Icon: Clock,
-    color: 'text-primary-600',
+    color: 'text-primary-700',
     bg: 'bg-primary-50',
     border: 'border-primary-200',
     label: 'Active',
   },
   upcoming: {
     Icon: Circle,
-    color: 'text-secondary-400',
-    bg: 'bg-secondary-50',
-    border: 'border-border-light',
+    color: 'text-secondary-500',
+    bg: 'bg-secondary-100',
+    border: 'border-black/[0.06]',
     label: 'Upcoming',
   },
 }
 
 export function RoadmapSection() {
   return (
-    <Section id="roadmap" spacing="lg" background="light" aria-label="Roadmap">
+    <Section
+      id="roadmap"
+      spacing="lg"
+      className="bg-surface-warm"
+      aria-label="Roadmap"
+    >
       <Container>
         <SectionHeader align="center">
           <SectionTag>Roadmap</SectionTag>
@@ -147,19 +152,18 @@ export function RoadmapSection() {
                   className={cn(
                     'rounded-xl border bg-white p-6 transition-all duration-200',
                     phase.status === 'active'
-                      ? 'border-primary-200 shadow-md'
-                      : 'border-border-light hover:border-secondary-200 hover:shadow-sm'
+                      ? 'border-primary-200 ring-primary-100 shadow-md ring-1'
+                      : 'border-black/[0.06] hover:border-black/[0.10] hover:shadow-sm'
                   )}
                 >
                   <div className="flex flex-col gap-6 lg:flex-row lg:items-start">
-                    {/* Phase number and status */}
                     <div className="flex shrink-0 items-center gap-4 lg:w-20 lg:flex-col lg:items-center lg:gap-2">
                       <div
                         className={cn(
                           'flex h-12 w-12 items-center justify-center rounded-full border-2 text-lg font-bold',
                           phase.status === 'active'
                             ? 'border-primary-500 bg-primary-50 text-primary-700'
-                            : 'border-border-light bg-secondary-50 text-secondary-400'
+                            : 'bg-secondary-50 text-secondary-400 border-black/[0.08]'
                         )}
                       >
                         {phase.phase}
@@ -177,7 +181,6 @@ export function RoadmapSection() {
                       </div>
                     </div>
 
-                    {/* Content */}
                     <div className="flex-1">
                       <div className="mb-1 flex flex-wrap items-center gap-3">
                         <h3 className="text-secondary-900 text-lg font-semibold">
@@ -191,7 +194,6 @@ export function RoadmapSection() {
                         {phase.description}
                       </p>
 
-                      {/* Milestones */}
                       <div className="flex flex-wrap gap-2">
                         {phase.milestones.map(milestone => (
                           <span
@@ -200,7 +202,7 @@ export function RoadmapSection() {
                               'rounded-full border px-3 py-1 text-xs',
                               phase.status === 'active'
                                 ? 'border-primary-100 bg-primary-50 text-primary-700'
-                                : 'border-border-light bg-secondary-50 text-secondary-500'
+                                : 'bg-secondary-50 text-secondary-500 border-black/[0.06]'
                             )}
                           >
                             {milestone}

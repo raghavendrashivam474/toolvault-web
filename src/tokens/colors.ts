@@ -49,18 +49,18 @@ export const colors = {
 
   // Sprint 5 — Warm neutral surfaces
   surface: {
-    warm: '#fafaf9',      // Warm White — primary light sections
-    subtle: '#f7f7f5',    // Surface — subtle contrast between whites
-    light: '#f5f5f4',     // Light Gray — softest neutral for detail sections
-    elevated: '#ffffff',  // Pure white — only for elevated card surfaces
+    warm: '#fafaf9', // Warm White — primary light sections
+    subtle: '#f7f7f5', // Surface — subtle contrast between whites
+    light: '#f5f5f4', // Light Gray — softest neutral for detail sections
+    elevated: '#ffffff', // Pure white — only for elevated card surfaces
   },
 
   // Sprint 5 — Dark tone hierarchy (each section a different room)
   graphite: {
-    deep: '#0b0f1a',      // Hero — dramatic intro
-    default: '#111827',   // Labs, CTA — workspace and close
-    midnight: '#0f172a',  // Vision — contemplative
-    black: '#05070d',     // Footer — grounded finality
+    deep: '#0b0f1a', // Hero — dramatic intro
+    default: '#111827', // Labs, CTA — workspace and close
+    midnight: '#0f172a', // Vision — contemplative
+    black: '#05070d', // Footer — grounded finality
   },
 
   // Sprint 5 — Gold accent (used sparingly)
@@ -70,7 +70,7 @@ export const colors = {
     200: '#f3dea8',
     300: '#e9c37a',
     400: '#dfa953',
-    500: '#d4a574',      // Primary gold — warm amber
+    500: '#d4a574', // Primary gold — warm amber
     600: '#b8874d',
     700: '#916738',
     800: '#6b4b2a',
@@ -98,8 +98,8 @@ export const colors = {
 
   success: { light: '#f0fdf4', default: '#22c55e', dark: '#15803d' },
   warning: { light: '#fffbeb', default: '#f59e0b', dark: '#b45309' },
-  error:   { light: '#fef2f2', default: '#ef4444', dark: '#b91c1c' },
-  info:    { light: '#eff6ff', default: '#3b82f6', dark: '#1d4ed8' },
+  error: { light: '#fef2f2', default: '#ef4444', dark: '#b91c1c' },
+  info: { light: '#eff6ff', default: '#3b82f6', dark: '#1d4ed8' },
 } as const
 
 export type Colors = typeof colors
