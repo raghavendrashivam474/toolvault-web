@@ -1,118 +1,128 @@
-'use client'
-
-import { motion } from 'framer-motion'
 import { ArrowRight, ChevronDown } from 'lucide-react'
 import { Button } from '@/components/buttons'
 import { Container } from '@/components/layout'
-import { fadeUp, staggerContainer, staggerItem } from '@/animations'
 
 export function HeroSection() {
   return (
     <section
       id="hero"
-      className="bg-secondary-950 relative flex min-h-screen items-center justify-center overflow-hidden"
+      className="bg-graphite-deep texture-glow-primary relative flex min-h-screen items-center justify-center overflow-hidden"
       aria-label="Hero"
     >
+      {/* Engineering blueprint texture — extremely subtle */}
       <div
-        className="pointer-events-none absolute inset-0 opacity-[0.03]"
+        className="texture-blueprint pointer-events-none absolute inset-0"
         aria-hidden="true"
-        style={{
-          backgroundImage:
-            'linear-gradient(rgba(255,255,255,0.8) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.8) 1px, transparent 1px)',
-          backgroundSize: '64px 64px',
-        }}
       />
 
+      {/* Ambient warm accent — barely visible gold glow bottom-right */}
       <div
         className="pointer-events-none absolute inset-0"
         aria-hidden="true"
         style={{
           background:
-            'radial-gradient(ellipse 80% 50% at 50% 40%, rgba(98,112,241,0.12) 0%, transparent 70%)',
+            'radial-gradient(ellipse 40% 30% at 80% 80%, rgba(212, 165, 116, 0.06) 0%, transparent 60%)',
         }}
       />
 
       <Container>
-        <div className="flex flex-col items-center gap-8 py-32 text-center">
-          {/* LCP element — rendered immediately, no animation delay */}
-          <span className="border-primary-500/30 bg-primary-500/10 text-primary-400 inline-block rounded-full border px-4 py-1.5 text-xs font-semibold tracking-widest uppercase">
-            Engineering Infrastructure Platform
-          </span>
+        <div className="relative flex flex-col items-center gap-10 py-32 text-center">
+          {/* Overline tag with gold hint */}
+          <div className="animate-fade-in inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.03] px-4 py-1.5 backdrop-blur-sm">
+            <span className="bg-gold-500 h-1.5 w-1.5 rounded-full" />
+            <span className="text-xs font-semibold tracking-widest text-white/70 uppercase">
+              Engineering Infrastructure Platform
+            </span>
+          </div>
 
-          <h1 className="max-w-4xl text-5xl leading-[1.05] font-bold tracking-tight text-balance text-white md:text-6xl lg:text-7xl">
+          {/* Headline — LCP element, no animation delay */}
+          <h1 className="max-w-[880px] text-5xl leading-[1.02] font-bold tracking-tight text-balance text-white md:text-6xl lg:text-7xl xl:text-[5.5rem]">
             Built for engineers who{' '}
-            <span className="text-primary-400">build the future</span>
+            <span className="relative inline-block">
+              <span className="text-primary-400 relative z-10">
+                build the future
+              </span>
+              {/* Subtle underline glow */}
+              <span
+                aria-hidden="true"
+                className="bg-primary-500/20 absolute inset-x-0 bottom-1 -z-0 h-3 blur-md"
+              />
+            </span>
           </h1>
 
-          <motion.div
-            variants={staggerContainer}
-            initial="hidden"
-            animate="visible"
-            className="flex flex-col items-center gap-8"
+          {/* Subheading */}
+          <p
+            className="max-w-reading animate-fade-up text-lg leading-[1.6] text-balance text-white/60 md:text-xl"
+            style={{ animationDelay: '120ms', animationFillMode: 'both' }}
           >
-            <motion.p
-              variants={staggerItem}
-              className="text-secondary-400 max-w-2xl text-lg leading-relaxed text-balance md:text-xl"
-            >
-              Professional engineering equipment, collaborative workspaces, and
-              structured mentorship — the complete infrastructure for serious
-              builders, in one place.
-            </motion.p>
+            Professional equipment, collaborative workspaces, and structured
+            mentorship — the complete infrastructure for serious builders, in
+            one place.
+          </p>
 
-            <motion.div
-              variants={staggerItem}
-              className="flex flex-col items-center gap-3 sm:flex-row"
+          {/* CTA row */}
+          <div
+            className="animate-fade-up flex flex-col items-center gap-3 sm:flex-row sm:gap-4"
+            style={{ animationDelay: '220ms', animationFillMode: 'both' }}
+          >
+            <Button
+              variant="primary"
+              size="lg"
+              rightIcon={<ArrowRight className="h-4 w-4" />}
             >
-              <Button
-                variant="primary"
-                size="lg"
-                rightIcon={<ArrowRight className="h-4 w-4" />}
+              Explore ToolVault
+            </Button>
+            <a
+              href="#about"
+              className="group inline-flex items-center gap-2 rounded-lg px-4 py-2 text-sm font-medium text-white/70 transition-colors duration-200 hover:text-white"
+            >
+              Learn more
+              <span
+                aria-hidden="true"
+                className="inline-block transition-transform duration-200 group-hover:translate-y-0.5"
               >
-                Explore ToolVault
-              </Button>
-              <Button variant="ghost" size="lg">
-                <span className="text-secondary-300 hover:text-white">
-                  Learn More
-                </span>
-              </Button>
-            </motion.div>
+                ↓
+              </span>
+            </a>
+          </div>
 
-            <motion.div
-              variants={staggerItem}
-              className="text-secondary-500 flex flex-wrap items-center justify-center gap-6 text-xs"
-            >
-              {[
-                'Professional Equipment',
-                'Expert Mentorship',
-                'Collaborative Labs',
-                'End-to-End Prototyping',
-              ].map(item => (
-                <span key={item} className="flex items-center gap-2">
-                  <span className="bg-primary-500 h-1 w-1 rounded-full" />
-                  {item}
-                </span>
-              ))}
-            </motion.div>
-          </motion.div>
+          {/* Trust row — refined typography */}
+          <div
+            className="animate-fade-up mt-4 flex flex-wrap items-center justify-center gap-x-8 gap-y-3"
+            style={{ animationDelay: '320ms', animationFillMode: 'both' }}
+          >
+            {[
+              'Professional Equipment',
+              'Expert Mentorship',
+              'Collaborative Labs',
+              'End-to-End Prototyping',
+            ].map(item => (
+              <span
+                key={item}
+                className="flex items-center gap-2 text-xs font-medium text-white/40"
+              >
+                <span className="h-px w-4 bg-white/20" />
+                {item}
+              </span>
+            ))}
+          </div>
         </div>
       </Container>
 
-      <motion.div
-        variants={fadeUp}
-        initial="hidden"
-        animate="visible"
-        className="absolute bottom-8 left-1/2 -translate-x-1/2"
-        aria-hidden="true"
+      {/* Scroll indicator — refined */}
+      <a
+        href="#about"
+        aria-label="Scroll to content"
+        className="animate-fade-in group absolute bottom-10 left-1/2 -translate-x-1/2"
+        style={{ animationDelay: '600ms', animationFillMode: 'both' }}
       >
-        <motion.div
-          animate={{ y: [0, 6, 0] }}
-          transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
-          className="text-secondary-600 flex flex-col items-center gap-1"
-        >
-          <span className="text-xs tracking-widest uppercase">Scroll</span>
-          <ChevronDown className="h-4 w-4" />
-        </motion.div>
-      </motion.div>
+        <div className="flex flex-col items-center gap-2 text-white/30 transition-colors duration-300 group-hover:text-white/60">
+          <span className="text-[10px] font-semibold tracking-[0.2em] uppercase">
+            Scroll
+          </span>
+          <ChevronDown className="h-4 w-4 animate-bounce" />
+        </div>
+      </a>
     </section>
   )
 }
