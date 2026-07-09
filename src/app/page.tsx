@@ -1,4 +1,5 @@
-﻿import { Navbar } from '@/components/navigation'
+import { SkipLink } from '@/components/a11y'
+import { Navbar } from '@/components/navigation'
 import { HeroSection } from '@/components/sections/hero'
 import { ProblemSection } from '@/components/sections/problem'
 import { SolutionSection, WhySection } from '@/components/sections/solution'
@@ -12,8 +13,9 @@ import { Footer } from '@/components/sections/footer'
 export default function HomePage() {
   return (
     <>
+      <SkipLink />
       <Navbar />
-      <main id="main-content">
+      <main id="main-content" tabIndex={-1}>
         <HeroSection />
         <ProblemSection />
         <SolutionSection />
